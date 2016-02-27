@@ -1,0 +1,4 @@
+- Client should detect an image from a camera
+- Client will listen to a socket from socket.io
+- Client will render out a color based on either a command, or computer vision detection
+- Client will Ask a User to connect to the websocket via their seat or section number
