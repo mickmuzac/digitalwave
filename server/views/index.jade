@@ -7,11 +7,14 @@ block content
     p Please Enter your Section Number
     input#sectionnumber
 
+  label
     p Please Enter your Row Number
     input#rownumber
-
+  label
     p Please Enter your Seat Number
     input#seatnumber
-    button#submitseat Submit
 
-    script(src="/javascripts/frontpage.js")
+  button#submitseat Submit
+
+  script(src="/javascripts/seat_detection.js")
+  script(src="/javascripts/frontpage.js")
