@@ -95,7 +95,7 @@ function onListening() {
 
 // Pass in a connection
 io.on('connection', function (socket) {
-  var colors = ['#005ca3',	'#fff'
+  var colors = ['#005ca3',	'#fff' 
 ];
   total_length = colors.length - 1;
   section = 0;
@@ -113,7 +113,7 @@ io.on('connection', function (socket) {
     // TODO: Add a killswitch somehow.
     setTimeout(function() {
       changeColor(colors, section_id, socket);
-    },1000);
+    },2500);
   }
   // Start broadcasting the color.
   changeColor(colors, section, socket);
