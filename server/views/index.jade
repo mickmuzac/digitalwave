@@ -4,5 +4,14 @@ block content
   h1= title
   p Welcome to #{title}
   label
+    p Please Enter your Section Number
+    input#sectionnumber
+
+    p Please Enter your Row Number
+    input#rownumber
+
     p Please Enter your Seat Number
-    input#input
+    input#seatnumber
+    button#submitseat Submit
+
+    script(src="/javascripts/frontpage.js")
