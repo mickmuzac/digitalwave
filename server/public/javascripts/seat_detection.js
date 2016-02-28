@@ -40,6 +40,7 @@ for(color_key in radial_sections) {
 var SeatDetection = {
   sections: sections,
   getSection: function(section_id) {
+    section_id = section_id.toUpperCase();
     current_section = self.sections[section_id];
     if(current_section) {
       return current_section;
