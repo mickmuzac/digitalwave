@@ -40,6 +40,7 @@ for(color_key in radial_sections) {
 var SeatDetection = {
   sections: sections,
   getSection: function(section_id) {
+    section_id = section_id.toUpperCase();
     current_section = self.sections[section_id];
     if(current_section) {
       return current_section;
@@ -57,3 +58,19 @@ function storeSeatNumber(){
 	localStorage.setItem("sectionnumber", sectionnumber.value);
 	localStorage.setItem("radialSection", SeatDetection.getSection(sectionnumber.value));
 }
+
+
+function disableCamera() {
+  document.getElementById('hascamera').value = false;
+}
+function enableCamera() {
+  document.getElementById('hascamera').value = true;
+}
+
+var constraints = {
+  audio: false,
+  video: true
+};
+
+navigator.getUserMedia(constraints, enableCamera, disableCamera);
+

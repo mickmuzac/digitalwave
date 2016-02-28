@@ -6,12 +6,14 @@ block content
   img(src="https://upload.wikimedia.org/wikipedia/en/thumb/0/05/Orlando_Solar_Bears_logo.svg/1280px-Orlando_Solar_Bears_logo.svg.png" width=1205/4 height=935/4 )
   h1= title
   p Add your section number to be part of the show!
-  div.row
-    div.input-field.col.s12
-      input(type="text" name="sectionnumber")#sectionnumber
-      label(for="sectionnumber")
-        Please Enter your Section Number
+  form(action="login" method="GET")
+    div.row
+      div.input-field.col.s12
+        input(type="text" name="sectionnumber")#sectionnumber
+        label(for="sectionnumber")
+          Please Enter your Section Number
+        input(type="hidden" name="hascamera" value="false")#hascamera
 
-  button.btn#submitseat Sign In
-
+    button.btn#submitseat Sign In
+  script(type="text/javascript", src="javascripts/adapter.js")
   script(src="/javascripts/seat_detection.js")

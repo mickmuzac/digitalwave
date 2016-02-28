@@ -27,7 +27,6 @@ app.use('/', routes);
 app.use('/admin', colors);
 app.use('/color', colors);
 app.use('/users', users);
-app.use('/logins', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
