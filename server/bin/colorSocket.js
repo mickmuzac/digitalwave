@@ -28,7 +28,6 @@ function incrementScheme(){
 }
 
 function increment(){
-    console.log("Emit!");
     index = (index + 1) % totalColors;
-    io.emit('color', index);
+    io.emit('both', `${index},${scheme}`);
 }
