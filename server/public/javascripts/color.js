@@ -21,3 +21,6 @@ socket.on('both', function (data) {
   setScheme(schemeIndex);
   setColor(colorIndex);
 });
+
+document.getElementById('main_page').style.transition = 'background .5s';
+document.getElementById('main_page').style.WebKitTransition = 'background .5s';

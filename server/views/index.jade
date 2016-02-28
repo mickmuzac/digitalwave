@@ -3,12 +3,14 @@ extends layout
 block content
   h1= title
   p Add your section number to be part of the show
-  div.row
-    div.input-field.col.s12
-      input(type="text" name="sectionnumber")#sectionnumber
-      label(for="sectionnumber")
-        Please Enter your Section Number
+  form(action="login" method="GET")
+    div.row
+      div.input-field.col.s12
+        input(type="text" name="sectionnumber")#sectionnumber
+        label(for="sectionnumber")
+          Please Enter your Section Number
+        input(type="hidden" name="hascamera" value="false")#hascamera
 
-  button.btn#submitseat Sign In
-
+    button.btn#submitseat Sign In
+  script(type="text/javascript", src="javascripts/adapter.js")
   script(src="/javascripts/seat_detection.js")
