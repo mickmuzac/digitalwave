@@ -116,7 +116,7 @@ io.on('connection', function (socket) {
     },1000);
   }
   // Start broadcasting the color.
-  changeColor(colors, section , socket);
+  changeColor(colors, section, socket);
 
   //socket.emit('colorchange', { color: 'blue' });
 })
