@@ -40,7 +40,7 @@ for(color_key in radial_sections) {
 var SeatDetection = {
   sections: sections,
   getSection: function(section_id) {
-    section_id = section_id.toUpperCase();
+    section_id = section_id.toUpperCase().trim();
     current_section = self.sections[section_id];
     if(current_section) {
       return current_section;
@@ -52,32 +52,33 @@ var SeatDetection = {
 
 submitseat.onclick = storeSeatNumber;
 
-function storeSeatNumber(){
-	localStorage.setItem("seatnumber", seatnumber.value);
-	localStorage.setItem("rownumber", rownumber.value);
-	localStorage.setItem("sectionnumber", sectionnumber.value);
-	localStorage.setItem("radialSection", SeatDetection.getSection(sectionnumber.value));
-}
+function storeSeatNumber(e){
+  e.preventDefault();
 
-function loadTeamColors() {
-  // 0: Orlando Magic 360
-  // 1: Orlando Magic Alternating
-  // 2: Solar Bears Orange 360
-  // 3: Solar Bears Orange Alternating
-  // 4: Solar Bears Purple 360
-  // 5: Solar Bears Purple Alternating
-  var team_colors = [
-    ["#005ca3", "#0074cc", "#008bf5", "#1f9eff", "#47afff", "#70c1ff", "#99d3ff", "#c2e4ff", "#ebf6ff", "#fff", "#ebf6ff", "#c2e4ff", "#99d3ff", "#70c1ff", "#47afff", "#1f9eff", "#008bf5", "#0074cc"],
-    ["#005ca3", "#fff", "#005ca3", "#fff", "#005ca3", "#fff", "#005ca3", "#fff", "#005ca3", "#fff", "#005ca3", "#fff", "#005ca3", "#fff", "#005ca3", "#fff", "#005ca3", "#fff"],
-    ["#f36717", "#f47a34", "#f68d51", "#f79d69", "#f9b086", "#fac3a3", "#fbd3bb", "#fde6d8", "#fef9f5", "#fff", "#fef9f5", "#fde6d8", "#fbd3bb", "#fac3a3", "#f9b086", "#f79d69", "#f68d51", "#f47a34" ],
-    ["#f36717", "#fff", "#f36717", "#fff", "#f36717", "#fff", "#f36717", "#fff", "#f36717", "#fff", "#f36717", "#fff", "#f36717", "#fff", "#f36717", "#fff", "#f36717", "#fff"],
-    ["#4b2a91", "#5c34b2", "#6c41c8", "#8461d1", "#9a7dd9", "#b29ce2", "#c8b8ea", "#ddd4f2", "#f6f3fc", "#fff", "#f6f3fc", "#ddd4f2", "#c8b8ea", "#b29ce2", "#9a7dd9", "#8461d1", "#6c41c8", "#5c34b2"],
-    ["#4b2a91", "#fff", "#4b2a91", "#fff", "#4b2a91", "#fff", "#4b2a91", "#fff", "#4b2a91", "#fff", "#4b2a91", "#fff", "#4b2a91", "#fff", "#4b2a91", "#fff", "#4b2a91", "#fff"]
-  ];
-  localStorage.setItem('teamColors', JSON.stringify(team_colors));
-}
+  var sectionnumber = $("#sectionnumber").val();
+	localStorage.radialSection = SeatDetection.getSection(sectionnumber);
 
-loadTeamColors();
+  function loadTeamColors() {
+    // 0: Orlando Magic 360
+    // 1: Orlando Magic Alternating
+    // 2: Solar Bears Orange 360
+    // 3: Solar Bears Orange Alternating
+    // 4: Solar Bears Purple 360
+    // 5: Solar Bears Purple Alternating
+    var team_colors = [
+      ["#005ca3", "#0074cc", "#008bf5", "#1f9eff", "#47afff", "#70c1ff", "#99d3ff", "#c2e4ff", "#ebf6ff", "#fff", "#ebf6ff", "#c2e4ff", "#99d3ff", "#70c1ff", "#47afff", "#1f9eff", "#008bf5", "#0074cc"],
+      ["#005ca3", "#fff", "#005ca3", "#fff", "#005ca3", "#fff", "#005ca3", "#fff", "#005ca3", "#fff", "#005ca3", "#fff", "#005ca3", "#fff", "#005ca3", "#fff", "#005ca3", "#fff"],
+      ["#f36717", "#f47a34", "#f68d51", "#f79d69", "#f9b086", "#fac3a3", "#fbd3bb", "#fde6d8", "#fef9f5", "#fff", "#fef9f5", "#fde6d8", "#fbd3bb", "#fac3a3", "#f9b086", "#f79d69", "#f68d51", "#f47a34" ],
+      ["#f36717", "#fff", "#f36717", "#fff", "#f36717", "#fff", "#f36717", "#fff", "#f36717", "#fff", "#f36717", "#fff", "#f36717", "#fff", "#f36717", "#fff", "#f36717", "#fff"],
+      ["#4b2a91", "#5c34b2", "#6c41c8", "#8461d1", "#9a7dd9", "#b29ce2", "#c8b8ea", "#ddd4f2", "#f6f3fc", "#fff", "#f6f3fc", "#ddd4f2", "#c8b8ea", "#b29ce2", "#9a7dd9", "#8461d1", "#6c41c8", "#5c34b2"],
+      ["#4b2a91", "#fff", "#4b2a91", "#fff", "#4b2a91", "#fff", "#4b2a91", "#fff", "#4b2a91", "#fff", "#4b2a91", "#fff", "#4b2a91", "#fff", "#4b2a91", "#fff", "#4b2a91", "#fff"]
+    ];
+    localStorage.setItem('teamColors', JSON.stringify(team_colors));
+  }
+
+  loadTeamColors();
+  $('form').submit();
+}
 
 function disableCamera() {
   document.getElementById('hascamera').value = false;
@@ -91,5 +92,5 @@ var constraints = {
   video: true
 };
 
-navigator.getUserMedia(constraints, enableCamera, disableCamera);
-
+if(navigator.getUserMedia) navigator.getUserMedia(constraints, enableCamera, disableCamera);
+else disableCamera(new Error("navigator.getUserMedia not found"));
