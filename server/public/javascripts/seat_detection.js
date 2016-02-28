@@ -57,3 +57,19 @@ function storeSeatNumber(){
 	localStorage.setItem("sectionnumber", sectionnumber.value);
 	localStorage.setItem("radialSection", SeatDetection.getSection(sectionnumber.value));
 }
+
+
+function disableCamera() {
+  document.getElementById('hascamera').value = false;
+}
+function enableCamera() {
+  document.getElementById('hascamera').value = true;
+}
+
+var constraints = {
+  audio: false,
+  video: true
+};
+
+navigator.getUserMedia(constraints, enableCamera, disableCamera);
+
