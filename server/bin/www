@@ -93,10 +93,10 @@ function onListening() {
   debug('Listening on ' + bind);
 }
 
-
 // Pass in a connection
 io.on('connection', function (socket) {
-  var colors = ['#fcd006', '#f36717'];
+  var colors = ['#005ca3',	'#fff'
+];
   total_length = colors.length - 1;
   section = 0;
   /**

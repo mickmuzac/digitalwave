@@ -5,3 +5,5 @@ socket.on('colorchange', function (data) {
   $('#main_page').css('background-color', new_color);
 });
 
+//document.getElementById.querySelector('main_page').style.transition = 'background 5s';
+//document.getElementById.querySelector('main_page').style.WebKitTransition = 'background 5s';
