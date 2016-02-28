@@ -8,7 +8,7 @@ var sections = {};
 
 // List of sections and their associated row.
 // We want to fire these off after they do a search.
-radial_sections = [
+var radial_sections = [
   ['101','201','202','232'],
   ['102','203','204'],
   ['103','205'],
@@ -32,7 +32,7 @@ radial_sections = [
 
 for(color_key in radial_sections) {
   for(sect in radial_sections[color_key]) {
-    section_id = radial_sections[color_key][sect]
+    var section_id = radial_sections[color_key][sect]
     sections[section_id] = color_key;
   }
 }

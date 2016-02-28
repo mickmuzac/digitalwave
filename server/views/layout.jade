@@ -1,6 +1,10 @@
 doctype html
 html
   head
+    link(rel="stylesheet", href="/stylesheets/materialize.css")
     title= title
   body
-    block content
+    div.container
+      block content
+    script(src="https://code.jquery.com/jquery-2.1.1.min.js")
+    script(src="/javascripts/materialize.js")

@@ -2,18 +2,13 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
-  label
-    p Please Enter your Section Number
-    input#sectionnumber
+  p Add your section number to be part of the show
+  div.row
+    div.input-field.col.s12
+      input(type="text" name="sectionnumber")#sectionnumber
+      label(for="sectionnumber")
+        Please Enter your Section Number
 
-  label
-    p Please Enter your Row Number
-    input#rownumber
-  label
-    p Please Enter your Seat Number
-    input#seatnumber
-
-  button#submitseat Submit
+  button.btn#submitseat Sign In
 
   script(src="/javascripts/seat_detection.js")
