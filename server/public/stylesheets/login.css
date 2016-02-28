@@ -1,0 +1,10 @@
+body{background-color : 	#61abff;}
+.container  {
+	background-color : #fefefe;
+	padding-bottom : 2em;
+	padding-left : 1em;
+	padding-right : 1em;
+	margin-top : 1em;
+	outline: #000000 solid medium;
+}
+
