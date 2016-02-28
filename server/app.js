@@ -6,6 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var colors = require('./routes/color');
+var admins = require('./routes/admin');
 
 var app = express();
 
@@ -22,6 +24,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
+app.use('/admin', colors);
+app.use('/color', colors);
 app.use('/users', users);
 app.use('/logins', users);
 

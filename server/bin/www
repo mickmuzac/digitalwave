@@ -7,7 +7,6 @@
 var app = require('../app');
 var debug = require('debug')('digitalwave:server');
 var http = require('http');
-var io = require('socket.io')(http);
 
 /**
  * Get port from environment and store in Express.
@@ -21,6 +20,9 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
+var io = require('socket.io')(server);
+
+
 
 /**
  * Listen on provided port, on all network interfaces.
@@ -78,6 +80,7 @@ function onError(error) {
   }
 }
 
+
 /**
  * Event listener for HTTP server "listening" event.
  */
@@ -89,3 +92,31 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+
+
+// Pass in a connection
+io.on('connection', function (socket) {
+  var colors = ['#fcd006', '#f36717'];
+  total_length = colors.length - 1;
+  section = 0;
+  /**
+   * Change the color from the array,
+   * @param {Array} Array of colors
+   * @param {Integer} section_id The started array of the section id
+   * @param {io Socket} Socket
+   */
+  function changeColor(colors, section_id, socket) {
+    total_length = colors.length;
+    hex_color = colors[(section_id % total_length)];
+    socket.emit('colorchange', {color: hex_color});
+    section_id = (section_id + 1) % total_length;
+    // TODO: Add a killswitch somehow.
+    setTimeout(function() {
+      changeColor(colors, section_id, socket);
+    },1000);
+  }
+  // Start broadcasting the color.
+  changeColor(colors, section , socket);
+
+  //socket.emit('colorchange', { color: 'blue' });
+})

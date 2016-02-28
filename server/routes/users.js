@@ -7,4 +7,9 @@ router.get('/', function(req, res, next) {
   //res.render('colors', { title: 'Express mann' });
 });
 
+router.get("/:id", function(req, res, next) {
+  // Get the color based on the ID for the user.
+  res.json({"color": "green"});
+})
+
 module.exports = router;
