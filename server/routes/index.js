@@ -12,11 +12,11 @@ router.get('/cam', function(req, res, next) {
 
 router.get("/login", function(req, res, next) {
   var needs_camera = req.param('hascamera');
-  if(needs_camera != "false") {
+  /* if(needs_camera != "false") {
     res.redirect('/cam');
-  } else {
+  } else { */
     res.redirect('/color');
-  }
+  //}
 });
 
 module.exports = router;
