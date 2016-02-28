@@ -12,7 +12,7 @@ router.get('/cam', function(req, res, next) {
 
 router.get("/login", function(req, res, next) {
   var needs_camera = req.param('hascamera');
-  if(needs_camera) {
+  if(needs_camera != "false") {
     res.redirect('/cam');
   } else {
     res.redirect('/color');
