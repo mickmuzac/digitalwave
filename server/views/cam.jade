@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  .vid
+    button Go!
+    canvas
+    video(autoplay, style="display:none;")
+    select#audioSource
+    select#videoSource
+  script(type="text/javascript", src="javascripts/adapter.js")
+  script(type="text/javascript", src="javascripts/main.js")
+  h1= title
+  p Welcome to #{title}
