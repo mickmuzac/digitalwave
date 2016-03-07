@@ -1,6 +1,6 @@
 # digitalwave
 
-Digital Wave is a project created during [Hack the Arena](http://hackthearena.co) and is the next generation of "The Wave." Feel free to peruse this README. You may also find more information on this [project's DevPost page](http://devpost.com/software/digital-wave).
+Digital Wave is a project created during [Hack the Arena](http://hackthearena.co) and was desinged to be the next generation of "The Wave." Feel free to peruse this README. You may also find more information on this [project's DevPost page](http://devpost.com/software/digital-wave).
 
 Ideal Workflow:
 
