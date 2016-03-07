@@ -12,9 +12,9 @@ Ideal Workflow:
 ## Client:
 
 ### Target:
-Our MVP only targets Google Chrome and Firefox for Android devices (and technically anything with a camera). Unfortunately, Safari does not support [getUserMedia](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia), so it is impossible to interface with the cameras of iOS devices and Macs from the web (using Chrome on those devices may be a possibility).
+Our MVP only targets Google Chrome and Firefox for Android devices (and technically any device with a camera). Unfortunately, Safari does not support [getUserMedia](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia), so it is impossible to interface with the cameras of iOS devices and Macs from the web (using Chrome on those devices may be a possibility). Creating native apps on those platforms could be a possibility down the line.
 
-0. The client has access to the user's camera and get the information from the Camera
+0. The client has access to the user's camera and get the information from the camera
 0. The browser processes the image and determines the most vibrant color
 0. The client renders a color that covers the entire screen
 
@@ -22,9 +22,7 @@ Our MVP only targets Google Chrome and Firefox for Android devices (and technica
 
 ### Server to Client
 
-0. After recieving a connection, the Server broadcasts color info via Socket.io to all devices (in the backup case)
-0. Users will connect via Socket.io to enter in their seat number
-0. Server will tell users their color.
+After recieving a connection, the Server broadcasts color info via Socket.io to all devices (in the backup case).
 
 Note that if the best case plan of attack is realized, then the server does nothing more than serve computer vision code to the client. The client and Jumbotron then take full responsibility of Digital Wave. 
 
