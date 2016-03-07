@@ -2,23 +2,23 @@
 
 Digital Wave is a project created during [Hack the Arena](http://hackthearena.co) and was desinged to be the next generation of "The Wave." Feel free to peruse this README. You may also find more information on this [project's DevPost page](http://devpost.com/software/digital-wave).
 
-Ideal Workflow:
+Ideal Workflow
 
 0. Customers visit site and enter in their section, row, and seat number
 0. Customers point the front-facing camera on their phones to the Jumbotron
 0. The Jumbotron displays an obvious most vibrant color
 0. Phones will then detect the most vibrant color and display it on their screens, creating an orchestra of colors in the arena
 
-## Client:
+## Client
 
-### Target:
+### Target
 Our MVP only targets Google Chrome and Firefox for Android devices (and technically any device with a camera). Unfortunately, Safari does not support [getUserMedia](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia), so it is impossible to interface with the cameras of iOS devices and Macs from the web (using Chrome on those devices may be a possibility). Creating native apps on those platforms could be a possibility down the line.
 
 0. The client has access to the user's camera and get the information from the camera
 0. The browser processes the image and determines the most vibrant color
 0. The client renders a color that covers the entire screen
 
-## Server:
+## Server
 
 ### Server to Client
 
